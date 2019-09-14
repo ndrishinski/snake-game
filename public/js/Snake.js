@@ -2,7 +2,7 @@ export default class Snake extends Phaser.Scene {
     constructor(scene) {
         super()
         this.scene = scene
-        this.moveInternal = 500
+        this.moveInternal = 100
         this.lastMoveTime = 0
         this.tileSize = 16;
         this.direction = Phaser.Math.Vector2.DOWN
@@ -66,5 +66,9 @@ export default class Snake extends Phaser.Scene {
         }
         this.body[0].x = x;
         this.body[0].y = y;
+
+        if (this.body[0].x < 0 || this.body[0].x >= this.scene.game.config.width || this.body[0].y < 0 || this.body[0].y >= this.scene.game.config.height) {
+            this.scene.scene.restart()
+        }
     }
 }
