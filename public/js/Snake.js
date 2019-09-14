@@ -27,15 +27,19 @@ export default class Snake extends Phaser.Scene {
         console.log(e)
         switch (e.keyCode) {
             case 37: 
-                this.direction = Phaser.Math.Vector2.LEFT
+                if (this.direction != Phaser.Math.Vector2.RIGHT) 
+                    this.direction = Phaser.Math.Vector2.LEFT
                 break;
             case 38:
+                if (this.direction != Phaser.Math.Vector2.DOWN) 
                     this.direction = Phaser.Math.Vector2.UP
                 break
             case 39: 
+            if (this.direction != Phaser.Math.Vector2.LEFT) 
                 this.direction = Phaser.Math.Vector2.RIGHT
                 break
             case 40: 
+            if (this.direction != Phaser.Math.Vector2.UP) 
                 this.direction = Phaser.Math.Vector2.DOWN
                 break
         }
